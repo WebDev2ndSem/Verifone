@@ -12,7 +12,7 @@
 			<ImageView class="logo" image="/logo.png"/>			
 	        <TextField id="username"  hintText="Username" />
 	        <TextField id="password" hintText="Password" passwordMask="true" />
-	         <Button id="loginButton"  onClick="dologin" title="Log In" />
+	         <Button id="loginButton"  onClick="doLogin" title="Log In" />
 		</View>
 		<!-->INVALID CREDENTIALS<!-->
 		<View id="loginError" visible="false">

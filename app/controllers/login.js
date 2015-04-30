@@ -5,7 +5,7 @@
 	c) the user uninstalls the application
  */ 
 if (Titanium.App.Properties.hasProperty('encodedUser')){
-	Ti.API.info(Titanium.App.Properties.getString('encodedUser'));
+//	Ti.API.info(Titanium.App.Properties.getString('encodedUser'));
 	$.login.visible = false;
 	$.menu.visible = true;
 	$.loginError.visible = false;
@@ -35,8 +35,8 @@ function logoutBut(e) {
     index.open();
 };
 
-// INITIAL login FUNCTION
-function dologin(e){
+// INITIAL Login FUNCTION
+function doLogin(e){
 	
 	Alloy.Globals.authstr = 'Basic ' + Titanium.Utils.base64encode($.username.value + ':' + $.password.value);
 
@@ -61,6 +61,9 @@ function dologin(e){
 	    error : function(){
 		    $.login.visible = true;
 		    $.loginError.visible = true;
+
+   
+
 	    }
 	});
 };
