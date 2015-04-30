@@ -8,9 +8,9 @@
 	    	Ti.API.info('success');
 	    	
 	        _.each(collection.models, function(element, index, list){
-	            /*element.attributes.title = element.attributes.node_title + " for " + element.attributes.productprice;
-	            element.attributes.productid = element.cid;
-	            element.attributes.description = element.attributes.body;*/
+	            element.attributes.title = element.attributes.deviceName + " for " + element.attributes.deviceStatus;
+	            element.attributes.productid = element.deviceId;
+	            element.attributes.description = element.attributes.deviceImage;
 	            // We are looping through the returned models from the remote REST API
 	            // Implement your custom logic here
 	        });
@@ -22,8 +22,36 @@
 
 	    }
 	});
+	
+$.myDevicesTable.addEventListener('click', function(_event) {
+    // get the correct model
+    var model =
+        Alloy.Collections.myDevices.getByCid(_event.rowData.productId);
+    // create the controller and pass in the model
+    var deviceMenuController = Alloy.createController('deviceMenu', {
+        data : model
+    });
+    // get view returns the root view when no view ID is provided
+    deviceMenuController.getView().open({
+        modal : true
+    });
+});
 
+// close the window when button is clicked
+$.closeBtn.addEventListener('click', function() {
+   CloseWindow();
+});
 
+function CloseWindow()
+{
+	 $.myDevices.close();
+}
+
+// Free model-view data binding resources when this
+// view-controller closes
+$.myDevices.addEventListener('close', function() {
+    $.destroy();
+});
 
 
 $.myDevices.open() ;

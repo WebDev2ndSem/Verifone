@@ -8,7 +8,7 @@ exports.definition = {
         "adapter": {
             "type": "restapi",
             "collection_name": "myDevices",
-            "idAttribute": "nid"
+            "idAttribute": "deviceId"
         },
         "headers": { // your custom headers
             "Accept": "application/json",
